@@ -5,12 +5,10 @@
 int main(void)
 {
     //명령어 입력
-    int a[4][4], b[4][4];
-    int c[4][4] = { 0 }, d[4][4] = { 0 };
+    int a[4][4], b[4][4], c[4][4] = { 0 }, d[4][4] = { 0 };
     char order;
-    int inputE = 0;
     int i, j;
-    int numof2A = 0, numof2B = 0;
+    int numof2A = 0, numof2B = 0, inputE = 0;
 
     //두개의 배열 값 주기
     srand(time(NULL));
@@ -206,7 +204,7 @@ int main(void)
             }
         }
 
-        //명령어 e (아직 안함!!!!!!!!!!!!!!!!!!!!)
+        //명령어 e
         if (order == 'e')
         {
             inputE += 1;

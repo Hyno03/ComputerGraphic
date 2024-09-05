@@ -5,47 +5,53 @@
 int main(void)
 {
     //명령어 입력
+    int a[4][4], b[4][4];
+    int c[4][4] = { 0 }, d[4][4] = { 0 };
     char order;
+    int inputE = 0;
+    int i, j;
+    int numof2A = 0, numof2B = 0;
+
+    srand(time(NULL));
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            a[i][j] = rand() % 3;
+            b[i][j] = rand() % 3;
+            if (a[i][j] == 2)
+            {
+                numof2A++;
+                if (numof2A > 2)
+                {
+                    a[i][j] = rand() % 2;
+                }
+            }
+            if (b[i][j] == 2)
+            {
+                numof2B++;
+                if (numof2B > 2)
+                {
+                    b[i][j] = rand() % 2;
+                }
+            }
+        }
+    }
 
     while(1)
     {
         printf("\n명령어를 입력하세요\n");
         scanf(" %c", &order);
 
-        //두개의 배열 값 주기, 기본 배열 값만 출력
-        int a[4][4], b[4][4];
-        int c[4][4] = { 0 }, d[4][4] = { 0 };
-        int i, j;
-        int numof2A = 0, numof2B = 0;
-
-        srand(time(NULL));
+        //기본 배열 값만 출력
         for (i = 0; i < 4; i++)
         {
             for (j = 0; j < 4; j++)
             {
-                a[i][j] = rand() % 3;
-                b[i][j] = rand() % 3;
-                if (a[i][j] == 2)
-                {
-                    numof2A++;
-                    if (numof2A > 2)
-                    {
-                        a[i][j] = rand() % 2;
-                    }
-                }
-                if (b[i][j] == 2)
-                {
-                    numof2B++;
-                    if (numof2B > 2)
-                    {
-                        b[i][j] = rand() % 2;
-                    }
-                }
                 printf("%d ", a[i][j]);
             }
             printf("\n");
         }
-
 
         //명령어 m
         if (order == 'm')
@@ -202,6 +208,8 @@ int main(void)
         //명령어 e (아직 안함!!!!!!!!!!!!!!!!!!!!)
         if (order == 'e')
         {
+            inputE += 1;
+            printf("%d",inputE);
             //두번째 배열 출력
             printf("   \n");
             for (i = 0; i < 4; i++)
@@ -241,6 +249,7 @@ int main(void)
             }
 
             //행렬 랜덤하게 재설정 후 첫번째 배열 출력
+            srand(time(NULL));
             printf("   =\n");
             numof2A = 0, numof2B = 0;
             for (i = 0; i < 4; i++)

@@ -12,6 +12,7 @@ int main(void)
     int i, j;
     int numof2A = 0, numof2B = 0;
 
+    //두개의 배열 값 주기
     srand(time(NULL));
     for (i = 0; i < 4; i++)
     {
@@ -43,7 +44,7 @@ int main(void)
         printf("\n명령어를 입력하세요\n");
         scanf(" %c", &order);
 
-        //기본 배열 값만 출력
+        //첫번째 배열 값만 출력
         for (i = 0; i < 4; i++)
         {
             for (j = 0; j < 4; j++)
@@ -209,7 +210,6 @@ int main(void)
         if (order == 'e')
         {
             inputE += 1;
-            printf("%d",inputE);
             //두번째 배열 출력
             printf("   \n");
             for (i = 0; i < 4; i++)
@@ -221,17 +221,110 @@ int main(void)
                 printf("\n");
             }
 
-            //행렬의 덧셈 값
             printf("   =\n");
-            for (i = 0; i < 4; i++)
+            //행렬 짝수 출력
+            if (inputE == 1)
             {
-                for (j = 0; j < 4; j++)
+                for (i = 0; i < 4; i++)
                 {
-                    c[i][j] = a[i][j] + b[i][j];
-                    printf("%d ", c[i][j]);
+                    for (j = 0; j < 4; j++)
+                    {
+                        if (a[i][j] == 1)
+                        {
+                            c[i][j] = 0;
+                        }
+                        else
+                        {
+                            c[i][j] = a[i][j];
+                        }
+
+                        if (b[i][j] == 1)
+                        {
+                            d[i][j] = 0;
+                        }
+                        else
+                        {
+                            d[i][j] = b[i][j];
+                        }
+                        printf("%d ", c[i][j]);
+                    }
+                    printf("\n");
                 }
+
                 printf("\n");
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        printf("%d ", d[i][j]);
+                    }
+                    printf("\n");
+                }
             }
+
+            //행렬 홀수 출력
+            if (inputE == 2)
+            {
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        if (a[i][j] == 2)
+                        {
+                            c[i][j] = 0;
+                        }
+                        else
+                        {
+                            c[i][j] = a[i][j];
+                        }
+
+                        if (b[i][j] == 2)
+                        {
+                            d[i][j] = 0;
+                        }
+                        else
+                        {
+                            d[i][j] = b[i][j];
+                        }
+                        printf("%d ", c[i][j]);
+                    }
+                    printf("\n");
+                }
+
+                printf("\n");
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        printf("%d ", d[i][j]);
+                    }
+                    printf("\n");
+                }
+            }
+            
+            //원래 값 출력
+            if (inputE == 3)
+            {
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        printf("%d ", a[i][j]);
+                    }
+                    printf("\n");
+                }
+
+                printf("\n");
+                for (i = 0; i < 4; i++)
+                {
+                    for (j = 0; j < 4; j++)
+                    {
+                        printf("%d ", b[i][j]);
+                    }
+                    printf("\n");
+                }
+                inputE = 0;
+            } 
         }
 
         //명령어 s

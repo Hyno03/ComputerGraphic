@@ -1,17 +1,16 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
 
 int main(void)
 {
     //명령어 입력
     char order;
 
-    while(order == 'q')
+    while(1)
     {
-        printf("명령어를 입력하세요");
-        scanf("%c", &order);
-        printf("%c 명령어를 입력하셨습니다.\n\n", order);
+        printf("\n명령어를 입력하세요\n");
+        scanf(" %c", &order);
 
         //두개의 배열 값 주기, 기본 배열 값만 출력
         int a[4][4], b[4][4];
@@ -300,7 +299,7 @@ int main(void)
             }
 
             //두번째 배열 출력
-            printf("\n\n");
+            printf("\n");
             for (i = 0; i < 4; i++)
             {
                 for (j = 0; j < 4; j++)
@@ -323,6 +322,11 @@ int main(void)
             }
         }
 
+        //명령어 q
+        if (order == 'q')
+        {
+            return 0;
+        }
     }
     
     return 0;

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\WarmingUp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\WarmingUp1\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\WarmingUp1\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\WarmingUp1\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4BAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-05T11:59:00.092Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ int main() {
 
     char line[256];
     char order;
+    int orderCCount = 0;
     // while (fgets(line, sizeof(line), file))
     // {
     //     printf("%s",line);
@@ -29,28 +30,57 @@ int main() {
         printf("Input Order\n");
         scanf(" %c", &order);
 
+        //명령어 c
         if(order == 'c')
         {
-            while (fgets(line, sizeof(line), file))
-            {
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
 
-                char *token = strtok(line, " ");
-                while(token != NULL)
+            //대문자로 시작하는 단어만 색 바꾸기
+            if(orderCCount == 1)
+            {
+                while (fgets(line, sizeof(line), file))
                 {
-                    if(isupper(token[0]))
+                    char *token = strtok(line, " ");
+                    while(token != NULL)
                     {
-                        printf("%s%s%s ",RED,token,RESET);
+                        if(isupper(token[0]))
+                        {
+                            printf("%s%s%s ",RED,token,RESET);
+                        }
+                        else
+                        {
+                            printf("%s ",token);
+                        }
+                        token = strtok(NULL, " ");
                     }
-                    else
-                    {
-                        printf("%s ",token);
-                    }
-                    token = strtok(NULL, " ");
+                    printf("\n");
                 }
-                printf("\n");
+            }
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char *token = strtok(line, " ");
+                    while(token != NULL)
+                    {
+                        printf("%s%s ",RESET,token);
+                        token = strtok(NULL, " ");
+                    }
+                    printf("\n");
+                }
+                orderCCount = 0;
             }
         }
+        
+        //명령어 d
+        else if(order == 'd')
+        {
 
+        }
+
+        //명령어 q
         else if(order == 'q')
         {
             fclose(file);

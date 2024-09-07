@@ -27,8 +27,8 @@ int main() {
 
     while (1)
     {
-        printf("Input Order\n");
-        scanf(" %c", &order);
+        printf("\nInput Order\n");
+        scanf("  %c", &order);
 
         //명령어 c
         if(order == 'c')
@@ -42,19 +42,34 @@ int main() {
                 while (fgets(line, sizeof(line), file))
                 {
                     char *token = strtok(line, " ");
+                    int firstWord = 1;
                     while(token != NULL)
                     {
-                        if(isupper(token[0]))
+                        if(firstWord)
                         {
-                            printf("%s%s%s ",RED,token,RESET);
+                            if(isupper(token[0]))
+                            {
+                                printf("%s%s%s",RED,token,RESET);
+                            }
+                            else
+                            {
+                                printf("%s",token);
+                            }
+                            firstWord = 0;
                         }
                         else
                         {
-                            printf("%s ",token);
+                            if(isupper(token[0]))
+                            {
+                                printf(" %s%s%s",RED,token,RESET);
+                            }
+                            else
+                            {
+                                printf(" %s",token);
+                            }
                         }
                         token = strtok(NULL, " ");
                     }
-                    printf("\n");
                 }
             }
             //원래대로 출력
@@ -63,12 +78,20 @@ int main() {
                 while (fgets(line, sizeof(line), file))
                 {
                     char *token = strtok(line, " ");
+                    int firstWord = 1;
                     while(token != NULL)
                     {
-                        printf("%s%s ",RESET,token);
+                        if(firstWord)
+                        {
+                           printf("%s",token);
+                           firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s",token);
+                        }
                         token = strtok(NULL, " ");
                     }
-                    printf("\n");
                 }
                 orderCCount = 0;
             }
@@ -85,7 +108,7 @@ int main() {
             {
                 while (fgets(line, sizeof(line), file))
                 {
-                    char *emptyToken[128];
+                    char *emptyToken[256];
                     int count = 0;
 
                     char *token = strtok(line, " ");
@@ -106,7 +129,6 @@ int main() {
                         }
                         printf(" ");
                     }
-                    printf("\n");
                 }
             }
             //원래대로 출력
@@ -115,12 +137,20 @@ int main() {
                 while (fgets(line, sizeof(line), file))
                 {
                     char *token = strtok(line, " ");
+                    int firstWord = 1;
                     while(token != NULL)
                     {
-                        printf("%s ", token);
+                        if(firstWord)
+                        {
+                           printf("%s",token);
+                           firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s",token);
+                        }
                         token = strtok(NULL, " ");
                     }
-                    printf("\n");
                 }
                 orderCCount = 0;
             }
@@ -129,7 +159,57 @@ int main() {
         //명령어 e
         if(order == 'e')
         {
-                
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            //3문자 뒤에 @@ 붙이기
+            if(orderCCount == 1)
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    int len = strlen(line);
+                    int count = 0;
+
+                    for(int i = 0 ; i < len; i++)
+                    {   
+                        printf("%c", line[i]);
+                        count++;
+                        if(line[i] == '\n')
+                        {
+                            count = 0;
+                        }
+                        if(count == 3)
+                        {
+                            printf("@@");
+                            count = 0;
+                        }
+                    }
+                }
+            }
+
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char *token = strtok(line, " ");
+                    int firstWord = 1;
+                    while(token != NULL)
+                    {
+                        if(firstWord)
+                        {
+                           printf("%s",token);
+                           firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s",token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
         }
 
         //명령어 q
@@ -138,15 +218,7 @@ int main() {
             fclose(file);
             return 0;
         }
-
-        //지정된 명령어를 입력하지 않았을 때
-        else
-        {
-            printf("No Order Exist.");
-        }
     }
-    
-    // fclose(file);
 
     return 0;
 }

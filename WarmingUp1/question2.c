@@ -65,7 +65,7 @@ int main() {
                             }
                             else
                             {
-                                printf(" %s",token);
+                                printf("%s",token);
                             }
                         }
                         token = strtok(NULL, " ");
@@ -184,6 +184,68 @@ int main() {
                             count = 0;
                         }
                     }
+                }
+            }
+
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char *token = strtok(line, " ");
+                    int firstWord = 1;
+                    while(token != NULL)
+                    {
+                        if(firstWord)
+                        {
+                           printf("%s",token);
+                           firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s",token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
+        }
+
+        //명령어 f
+        if(order == 'f')
+        {
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            //공백을 기준으로 단어 거꾸로 출력
+            if(orderCCount == 1)
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    line[strcspn(line, "\n")] = '\0';
+                    char *emptyToken[256];
+                    int count = 0;
+
+                    char *token = strtok(line, " ");
+                    while(token != NULL)
+                    {
+                        if(strlen(token) > 0)
+                        {
+                            emptyToken[count++] = token;
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                    for(int i = 0; i < count; i++)
+                    {
+                        int len = strlen(emptyToken[i]);
+                        for(int j = len - 1; j >= 0; j--)
+                        {
+                            printf("%c", emptyToken[i][j]);
+                        }
+                        printf(" ");
+                    }
+                    printf("\n");
                 }
             }
 

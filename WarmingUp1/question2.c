@@ -394,6 +394,144 @@ int main() {
             }
         }
 
+        //명령어 r
+        if (order == 'r')
+        {
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            //오름차순으로 출력
+            if (orderCCount == 1)
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    int wordCount = 0;
+                    char* token = strtok(line, " ");
+                    while (token != NULL)
+                    {
+                        wordCount++;
+                        token = strtok(NULL, " ");
+                    }
+                    for (int i = 0; i <= wordCount; i++)
+                    {
+
+                    }
+                }
+            }
+
+            //내림차순으로 출력
+            else if (orderCCount == 2)
+            {
+
+            }
+
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char* token = strtok(line, " ");
+                    int firstWord = 1;
+                    while (token != NULL)
+                    {
+                        if (firstWord)
+                        {
+                            printf("%s", token);
+                            firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s", token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
+        }
+
+
+        //명령어 s
+        if (order == 's')
+        {
+            char changeWord[256];
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            //바꾸기로 입력한 단어 대소문자 구분 없이 색 바꾸기
+            if (orderCCount == 1)
+            {
+                //원래 텍스트 출력
+                while (fgets(line, sizeof(line), file))
+                {
+                    printf("%s", line);
+                }
+
+                //색을 바꿀 단어 입력
+                printf("\nEnter the word to change");
+                scanf("%s", changeWord);
+
+                //변환 코드
+                while (fgets(line, sizeof(line), file))
+                {
+                    char* token = strtok(line, " ");
+                    int firstWord = 1;
+                    while (token != NULL)
+                    {
+                        if (_strcmpi(token, changeWord) == 0)
+                        {
+                            if (firstWord)
+                            {
+                                printf("%s%s",RED, token);
+                                firstWord = 0;
+                            }
+                            else
+                            {
+                                printf(" %s%s",RED, token);
+                            }
+                        }
+                        else
+                        {
+                            if (firstWord)
+                            {
+                                printf("%s%s",RESET, token);
+                                firstWord = 0;
+                            }
+                            else
+                            {
+                                printf(" %s%s",RESET, token);
+                            }
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+            }
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char* token = strtok(line, " ");
+                    int firstWord = 1;
+                    while (token != NULL)
+                    {
+                        if (firstWord)
+                        {
+                            printf("%s", token);
+                            firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s", token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
+        }
+
+
         //명령어 q
         else if(order == 'q')
         {

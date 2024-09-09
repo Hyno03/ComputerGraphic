@@ -269,7 +269,7 @@ int main() {
             orderCCount++;
             fseek(file, 0, SEEK_SET);
 
-            ////문자 내부의 특정 문자를 다른 문자로 바꾸기 (바꿀 문자와 입력할 문자 입력 받음)
+            //문자 내부의 특정 문자를 다른 문자로 바꾸기 (바꿀 문자와 입력할 문자 입력 받음)
             if (orderCCount == 1)
             {
                 //원래 텍스트 출력
@@ -319,6 +319,54 @@ int main() {
                         token = strtok(NULL, " ");
                     }
                 }
+            }
+
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char* token = strtok(line, " ");
+                    int firstWord = 1;
+                    while (token != NULL)
+                    {
+                        if (firstWord)
+                        {
+                            printf("%s", token);
+                            firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s", token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
+        }
+
+        //명령어 h
+        if (order == 'h')
+        {
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            //각 줄의 단어의 개수
+            if (orderCCount == 1)
+            {
+                 while (fgets(line, sizeof(line), file))
+                 {
+                     printf("%s",line);
+                     int wordCount = 0;
+                     char *token = strtok(line, " ");
+                     while(token != NULL)
+                     {
+                         wordCount++;
+                         token = strtok(NULL, " ");
+                     }
+                     printf(" = Word Count : %d\n", wordCount);
+                 }
             }
 
             //원래대로 출력

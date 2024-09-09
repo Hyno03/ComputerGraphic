@@ -12,18 +12,6 @@ int main() {
     char line[256];
     char order;
     int orderCCount = 0;
-    // while (fgets(line, sizeof(line), file))
-    // {
-    //     printf("%s",line);
-    //     int wordCount = 0;
-    //     char *token = strtok(line, " ");
-    //     while(token != NULL)
-    //     {
-    //         wordCount++;
-    //         token = strtok(NULL, " ");
-    //     }
-    //     printf(" = Word Count : %d\n", wordCount);
-    // }
 
     while (1)
     {
@@ -266,6 +254,90 @@ int main() {
                         else
                         {
                             printf(" %s",token);
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+                orderCCount = 0;
+            }
+        }
+
+        //명령어 g
+        if (order == 'g')
+        {
+            char orignalWord[256], changeWord[256];
+            orderCCount++;
+            fseek(file, 0, SEEK_SET);
+
+            ////문자 내부의 특정 문자를 다른 문자로 바꾸기 (바꿀 문자와 입력할 문자 입력 받음)
+            if (orderCCount == 1)
+            {
+                //원래 텍스트 출력
+                while (fgets(line, sizeof(line), file))
+                {
+                    printf("%s", line);
+                }
+
+                //원래 단어와 바꿀 단어 입력 받기
+                printf("\nEnter the word orignal.");
+                scanf(" %s", &orignalWord);
+                printf("Enter the word to change.");
+                scanf(" %s", &changeWord);
+                
+                //변환 코드
+                fseek(file, 0, SEEK_SET);
+                while (fgets(line, sizeof(line), file))
+                {
+                    int firstword = 1;
+                    char* token = strtok(line, " ");
+                    while (token != NULL)
+                    {
+                        if (strcmp(token, orignalWord) == 0)
+                        {
+                            if (firstword)
+                            {
+                                printf("%s", changeWord);
+                                firstword = 0;
+                            }
+                            else
+                            {
+                                printf(" %s", changeWord);
+                            }
+                        }
+                        else
+                        {
+                            if (firstword)
+                            {
+                                printf("%s", token);
+                                firstword = 0;
+                            }
+                            else
+                            {
+                                printf(" %s", token);
+                            }
+                        }
+                        token = strtok(NULL, " ");
+                    }
+                }
+            }
+
+            //원래대로 출력
+            else
+            {
+                while (fgets(line, sizeof(line), file))
+                {
+                    char* token = strtok(line, " ");
+                    int firstWord = 1;
+                    while (token != NULL)
+                    {
+                        if (firstWord)
+                        {
+                            printf("%s", token);
+                            firstWord = 0;
+                        }
+                        else
+                        {
+                            printf(" %s", token);
                         }
                         token = strtok(NULL, " ");
                     }

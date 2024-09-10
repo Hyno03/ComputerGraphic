@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|solutionrelative:question3.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5727666E-59BE-49C9-8F22-A9C16D0D29B5}|WarmingUp1.vcxproj|solutionrelative:question2.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -26,19 +30,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "question3.c",
+              "DocumentMoniker": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question3.c",
+              "RelativeDocumentMoniker": "question3.c",
+              "ToolTip": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question3.c*",
+              "RelativeToolTip": "question3.c*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-09-09T12:56:01.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "question2.c",
               "DocumentMoniker": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question2.c",
               "RelativeDocumentMoniker": "question2.c",
-              "ToolTip": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question2.c*",
-              "RelativeToolTip": "question2.c*",
-              "ViewState": "AgIAALcBAAAAAAAAAAAIwNkBAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question2.c",
+              "RelativeToolTip": "question2.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-05T15:04:59.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "stdio.h",
               "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
@@ -50,13 +67,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "question1.c",
               "DocumentMoniker": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question1.c",
               "RelativeDocumentMoniker": "question1.c",
               "ToolTip": "C:\\Users\\jenny\\OneDrive\\\uBB38\uC11C\\Visual Studio 2022\\Projects\\ComputerGraphic\\WarmingUp1\\question1.c",
               "RelativeToolTip": "question1.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAiwLABAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-05T11:59:00.092Z"
             }

@@ -266,7 +266,7 @@
 //        //명령어 g
 //        if (order == 'g')
 //        {
-//            char orignalWord[256], changeWord[256];
+//            char orignalWord, changeWord;
 //            orderGCount++;
 //            fseek(file, 0, SEEK_SET);
 //
@@ -279,45 +279,49 @@
 //                    printf("%s", line);
 //                }
 //
-//                //원래 단어와 바꿀 단어 입력 받기
+//                //바뀔 문자와 바꿀 문자 입력 받기
 //                printf("\nEnter the word orignal.");
-//                scanf(" %s", &orignalWord);
+//                scanf(" %c", &orignalWord);
 //                printf("Enter the word to change.");
-//                scanf(" %s", &changeWord);
+//                scanf(" %c", &changeWord);
 //                
 //                //변환 코드
 //                fseek(file, 0, SEEK_SET);
 //                while (fgets(line, sizeof(line), file))
 //                {
-//                    int firstword = 1;
-//                    char* token = strtok(line, " ");
-//                    while (token != NULL)
+//                    int firstword = 1, len = strlen(line);
+//                    char tempToken[256];
+//                    strcpy(tempToken, line);
+//                    for (int i = 0; tempToken[i]; i++)
 //                    {
-//                        if (strcmp(token, orignalWord) == 0)
+//                        tempToken[i] = tolower(tempToken[i]);
+//                    }
+//                    for (int i = 0; i < len; i++)
+//                    {
+//                        if (tempToken[i] == orignalWord)
 //                        {
 //                            if (firstword)
 //                            {
-//                                printf("%s", changeWord);
+//                                printf("%c", changeWord);
 //                                firstword = 0;
 //                            }
 //                            else
 //                            {
-//                                printf(" %s", changeWord);
+//                                printf("%c", changeWord);
 //                            }
 //                        }
 //                        else
 //                        {
 //                            if (firstword)
 //                            {
-//                                printf("%s", token);
+//                                printf("%c", line[i]);
 //                                firstword = 0;
 //                            }
 //                            else
 //                            {
-//                                printf(" %s", token);
+//                                printf("%c", line[i]);
 //                            }
 //                        }
-//                        token = strtok(NULL, " ");
 //                    }
 //                }
 //            }

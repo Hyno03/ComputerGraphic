@@ -44,7 +44,7 @@ int main() {
     int x, y, z;
 
     while (1) {
-        printf("\n명령어 입력 :");
+        printf("\n명령어 입력: ");
         scanf(" %c", &command);  // 공백 추가로 버퍼 문제 방지
 
         if (command == '+') {
@@ -87,6 +87,7 @@ int main() {
         else if (command == 'c') {
             clearPoints(&list);
             printf("리스트가 초기화되었습니다.\n");
+            printPoints(&list);  // 명령어 c 후 리스트 출력
         }
         else if (command == 'm') {
             findFurthestPoint(&list);
@@ -173,32 +174,29 @@ void addPointAtBottom(PointList* list, int x, int y, int z) {
     }
 }
 
-// 맨 위에 있는 점 삭제
+// 맨 위에 있는 점 삭제 (빈 자리 유지)
 void removePointAtTop(PointList* list) {
-    for (int i = 0; i < list->size - 1; i++) {
-        list->points[i] = list->points[i + 1];
-    }
-    list->size--;
+    list->points[0].x = NULL;
+    list->points[0].y = NULL;
+    list->points[0].z = NULL;
     printf("맨 위의 점 삭제됨.\n");
-    for (int i = 0; i < list->size; i++) {
-        original[i] = list->points[i];  // 삭제 시 원래 인덱스 갱신
-    }
+    // 크기 줄이지 않음, 대신 빈 자리만 남김
 }
 
 // 맨 아래에 있는 점 삭제
 void removePointAtBottom(PointList* list) {
+    list->points[list->size - 1].x = 0;
+    list->points[list->size - 1].y = 0;
+    list->points[list->size - 1].z = 0;
     list->size--;
     printf("맨 아래의 점 삭제됨.\n");
-    for (int i = 0; i < list->size; i++) {
-        original[i] = list->points[i];  // 삭제 시 원래 인덱스 갱신
-    }
 }
 
 // 리스트 전체 출력
 void printPoints(const PointList* list) {
     printf("\n현재 리스트 상태:\n");
     for (int i = 0; i < MAX_POINTS; i++) {
-        if (i < list->size) {
+        if (i < list->size && (list->points[i].x != NULL || list->points[i].y != NULL || list->points[i].z != NULL)) {
             printf("인덱스 %d: (x: %d, y: %d, z: %d)\n", i, list->points[i].x, list->points[i].y, list->points[i].z);
         }
         else {
@@ -207,14 +205,25 @@ void printPoints(const PointList* list) {
     }
 }
 
-// 리스트 초기화
+// 리스트 비우기
 void clearPoints(PointList* list) {
     list->size = 0;
+    for (int i = 0; i < MAX_POINTS; i++) {
+        original[i].x = original[i].y = original[i].z = 0;
+    }
 }
 
-// 리스트에 저장된 점 개수 반환
+// 리스트의 점 개수 반환
 int countPoints(const PointList* list) {
-    return list->size;
+    for (int i = 0; i < MAX_POINTS; i++) {
+        if (list->points[i].x == NULL || list->points[i].y == NULL || list->points[i].z == NULL) {
+            return list->size - 1;
+        }
+        else
+        {
+            return list->size;
+        }
+    }
 }
 
 // 원점에서 가장 먼 점 찾기
@@ -284,7 +293,12 @@ void sortPointsByDistance(PointList* list, int ascending) {
 
 // 원래 순서로 복원
 void restoreOriginalOrder(PointList* list) {
-    for (int i = 0; i < list->size; i++) {
-        list->points[i] = original[i];
+    for (int i = 0; i < MAX_POINTS; i++) {
+        if (i < list->size && (list->points[i].x != NULL || list->points[i].y != NULL || list->points[i].z != NULL)) {
+            printf("인덱스 %d: (x: %d, y: %d, z: %d)\n", i, list->points[i].x, list->points[i].y, list->points[i].z);
+        }
+        else {
+            printf("인덱스 %d: 비어있음\n", i);
+        }
     }
 }

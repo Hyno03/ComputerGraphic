@@ -27,5 +27,14 @@
     <ClCompile Include="question4.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="question5.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="question6.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="question7.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
